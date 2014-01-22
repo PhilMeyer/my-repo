@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5 Canvas Test</title>
+<style type="text/css">
+body {
+	font-size: 70%;
+	font-family: verdana, helvetica, arial, sans-serif;
+}
+
+#bottom-part {
+	position: relative;
+	top: 730px;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/global.js"></script>
+<script src="js/drawing.js"></script>
+<script src="js/event-handling.js"></script>
+
+</head>
+
+<body>
+	<div>
+		<canvas id="background" width="720" height="720"
+			style="background-image:url('Map_Desert_Waste.jpg'); position: absolute; left: 5; top: 5; z-index: 0;"></canvas>
+		<canvas id="other" width="720" height="720"
+			style="position: absolute; left: 5; top: 5; z-index: 1;"></canvas>
+		<canvas id="units" width="720" height="720"
+			style="position: absolute; left: 5; top: 5; z-index: 2;"></canvas>
+		<canvas id="selectedCanvas" width="720" height="720"
+			style="position: absolute; left: 5; top: 5; z-index: 3;"
+			onmousedown="mouseDown(event)" onmouseup="mouseUp(event)"
+			onmousemove="mouseMove(event)"></canvas>
+
+	</div>
+	<div id="bottom-part">
+		<div id="xycoordinates"></div>
+		<div id="selected">Boogie</div>
+		<div id="debug1"></div>
+		<div id="debug2"></div>
+		<div id="debug3"></div>
+	</div>
+
+</body>
+
+<script>
+
+var backgroundCanvas = document.getElementById("background");
+var unitCanvas = document.getElementById("units");
+var otherCanvas = document.getElementById("other");
+var selectedCanvas = document.getElementById("selectedCanvas");
+
+var background = backgroundCanvas.getContext("2d");
+var units = unitCanvas.getContext("2d");
+var other = otherCanvas.getContext("2d");
+var selectedContext = selectedCanvas.getContext("2d");
+
+var selected;
+			
+drawGrid();
+refreshUnits();
+
+
+</script>
+
+</html>
+
